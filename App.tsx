@@ -13,6 +13,7 @@ const App: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [displayedWish, setDisplayedWish] = useState('');
   const [cakeEaten, setCakeEaten] = useState(false);
+  const [showSecretMessage, setShowSecretMessage] = useState(false);
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -44,6 +45,38 @@ const App: React.FC = () => {
       return () => clearInterval(interval);
     }
   }, [isTyping, wish]);
+
+  if (showSecretMessage) {
+    return (
+      <div className="relative w-full h-screen flex flex-col items-center justify-center p-6 bg-[#000] overflow-hidden text-center z-[100] animate-in fade-in zoom-in duration-500">
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-900/40 via-transparent to-red-900/40 pointer-events-none" />
+        <div className="flex gap-4 text-7xl md:text-9xl mb-8 animate-bounce">
+          <span>🍗</span>
+          <span>🍚</span>
+          <span>🍗</span>
+        </div>
+        
+        <h2 className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-200 to-red-500 mb-8 leading-tight drop-shadow-[0_0_30px_rgba(251,146,60,0.4)] px-4">
+          MARIYAATHIKK MANDHI VAANGHI THANNOLANAM, KEETADI MAAKIRI 🍗✨
+        </h2>
+
+        <p className="text-xl md:text-2xl text-orange-200 font-bold mb-12 italic opacity-80">
+          (Buying me Mandhi is mandatory! Hear that, monkey-face? 🐒)
+        </p>
+
+        <button 
+          onClick={() => window.location.reload()}
+          className="px-12 py-5 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 rounded-full font-black text-xl transition-all shadow-[0_15px_40px_rgba(220,38,38,0.4)] hover:scale-110 active:scale-95 border-2 border-white/20 uppercase tracking-widest"
+        >
+          I PROMISE! RELIVE MAGIC 💖
+        </button>
+        
+        <div className="mt-12 text-6xl opacity-30 animate-pulse">
+          🏃‍♀️💨 🍖
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center p-4 bg-[#1a0515] overflow-hidden">
@@ -109,9 +142,8 @@ const App: React.FC = () => {
           </div>
 
           <div className="w-full bg-white/10 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 border border-white/20 shadow-[0_0_80px_rgba(219,39,119,0.3)] relative group">
-            {/* Scrollable text container */}
-            <div className="max-h-[35vh] md:max-h-[45vh] overflow-y-auto custom-scrollbar px-2">
-               <p className="text-lg md:text-3xl font-black italic text-pink-50 leading-relaxed text-center drop-shadow-md break-words">
+            <div className="max-h-[35vh] md:max-h-[45vh] overflow-y-auto custom-scrollbar px-2 text-center">
+               <p className="text-lg md:text-3xl font-black italic text-pink-50 leading-relaxed drop-shadow-md break-words">
                 "{displayedWish}"
               </p>
             </div>
@@ -145,14 +177,14 @@ const App: React.FC = () => {
             
             {cakeEaten && (
               <div className="animate-in zoom-in slide-in-from-bottom duration-1000 text-2xl md:text-4xl font-black text-yellow-400 flex flex-col items-center gap-2 md:gap-4 px-4">
-                <span className="drop-shadow-[0_0_15px_rgba(250,204,21,0.5)] text-center">MAGICAL! YOU'RE THE BEST! 🍭</span>
+                <span className="drop-shadow-[0_0_15px_rgba(250,204,21,0.5)] text-center uppercase">MAGICAL! YOU'RE THE BEST! 🍭</span>
                 <span className="text-sm md:text-lg font-bold text-pink-200 tracking-widest bg-pink-900/50 px-6 py-2 rounded-full border border-pink-500/30 text-center">May all your dreams come true! 🌙</span>
               </div>
             )}
           </div>
 
           <button 
-            onClick={() => window.location.reload()}
+            onClick={() => setShowSecretMessage(true)}
             className="px-10 py-4 md:px-14 md:py-5 bg-gradient-to-r from-pink-600 via-rose-500 to-orange-400 hover:from-pink-500 hover:to-orange-300 rounded-full font-black text-lg md:text-xl transition-all shadow-[0_15px_40px_rgba(225,29,72,0.5)] hover:shadow-pink-400/80 active:scale-90 border-4 border-white/20 uppercase tracking-tighter"
           >
             RELIVE THE MAGIC 🌌

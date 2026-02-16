@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { Position } from '../types';
+import { Position } from '../types.ts';
 
 interface GiftBoxProps {
   onOpen: () => void;
@@ -61,7 +61,7 @@ const GiftBox: React.FC<GiftBoxProps> = ({ onOpen, isRunning }) => {
           CATCH HARITHA'S GIFT! 🏃‍♀️💖
         </div>
       ) : (
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-yellow-400 text-pink-900 px-8 py-3 rounded-full text-lg font-black shadow-[0_0_30px_rgba(255,215,0,0.6)] animate-bounce border-2 border-white uppercase tracking-widest">
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-yellow-400 text-pink-900 px-8 py-3 rounded-full text-lg font-black shadow-[0_0_30px_rgba(255,215,0,0.6)] animate-bounce border-2 border-white uppercase tracking-widest text-center">
           TAP TO UNWRAP! 🎁✨
         </div>
       )}

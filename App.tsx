@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import GiftBox from './components/GiftBox';
-import Confetti from './components/Confetti';
-import Glitter from './components/Glitter';
-import { generateBirthdayWish } from './services/gemini';
+import GiftBox from './components/GiftBox.tsx';
+import Confetti from './components/Confetti.tsx';
+import Glitter from './components/Glitter.tsx';
+import { generateBirthdayWish } from './services/gemini.ts';
 
 const App: React.FC = () => {
   const [isRunning, setIsRunning] = useState(true);
@@ -98,17 +98,15 @@ const App: React.FC = () => {
           </div>
 
           <div className="bg-white/10 backdrop-blur-2xl rounded-[3rem] p-12 border border-white/20 shadow-[0_0_80px_rgba(219,39,119,0.3)] relative group overflow-hidden">
-            {/* Glitter pop out effect on card */}
             <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
             
-             <p className="text-2xl md:text-4xl font-black min-h-[10rem] flex items-center justify-center italic text-pink-50 leading-[1.4] text-center drop-shadow-md">
+             <p className="text-2xl md:text-4xl font-black min-h-[10rem] flex items-center justify-center italic text-pink-50 leading-[1.4] text-center drop-shadow-md px-4">
               "{displayedWish}"
             </p>
             
             <div className="absolute -top-10 -right-10 text-8xl transition-transform group-hover:scale-125 duration-700 animate-bounce">💕</div>
             <div className="absolute -bottom-10 -left-10 text-8xl transition-transform group-hover:scale-125 duration-700 animate-bounce" style={{ animationDelay: '0.5s' }}>👑</div>
             
-            {/* Card Glint Animation */}
             <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg] group-hover:left-[150%] transition-all duration-[1.5s]" />
           </div>
 

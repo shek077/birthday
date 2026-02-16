@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Particle } from '../types';
+import { Particle } from '../types.ts';
 
 const Confetti: React.FC = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
